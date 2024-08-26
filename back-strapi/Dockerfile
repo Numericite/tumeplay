@@ -22,7 +22,7 @@ FROM node as build
 
 WORKDIR /app
 
-COPY . .
+COPY ./back-strapi .
 
 RUN yarn install --production --prefer-offline && \
   yarn cache clean
