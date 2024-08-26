@@ -20,22 +20,14 @@ RUN npm i -g yarn
 
 FROM node as build
 
-RUN adduser --uid 1001 strapi
-
-RUN mkdir -p /app && chown -R 1001:1001 /app
-
-USER 1001
-
 WORKDIR /app
 
-COPY --chown=1001:1001 package.json yarn.lock ./
+COPY . .
 
 RUN yarn install --production --prefer-offline && \
   yarn cache clean
 
 ENV NODE_ENV production
-
-COPY --chown=1001:1001 . .
 
 RUN yarn build
 
@@ -48,9 +40,8 @@ RUN apt-get update && apt-get install -y libnss3 ca-certificates fonts-liberatio
   rm -rf /var/lib/apt/lists/*
 
 EXPOSE 1337
-USER 1001
 WORKDIR /app
 ENV NODE_ENV production
 CMD ["yarn", "start"]
 
-COPY --from=build --chown=1001:1001 /app /app
+COPY --from=build /app /app
