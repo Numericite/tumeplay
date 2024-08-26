@@ -5,11 +5,11 @@ module.exports = ({ env }) => ({
       connector: "bookshelf",
       settings: {
         client: "postgres",
-        host: env("DATABASE_HOST", "127.0.0.1"),
-        port: env.int("DATABASE_PORT", 5432),
-        database: env("DATABASE_NAME", "tumeplay_dev"),
-        username: env("DATABASE_USERNAME", "db_user"),
-        password: env("DATABASE_PASSWORD", "Mjolnir64"),
+        host: env("POSTGRESQL_ADDON_HOST", "127.0.0.1"),
+        port: env.int("POSTGRESQL_ADDON_PORT", 5432),
+        database: env("POSTGRESQL_ADDON_DB", "local"),
+        username: env("POSTGRESQL_ADDON_USER", "local"),
+        password: env("POSTGRESQL_ADDON_PASSWORD", "local"),
         ssl: getSslConfig(env) 
       },
       options: {},
