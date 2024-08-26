@@ -22,9 +22,9 @@ FROM node as build
 
 RUN adduser --uid 1001 strapi
 
-USER 1001
-
 RUN mkdir -p /app && chown -R 1001:1001 /app
+
+USER 1001
 
 WORKDIR /app
 
