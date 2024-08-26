@@ -28,7 +28,7 @@ WORKDIR /app
 
 COPY --chown=1001:1001 package.json yarn.lock ./
 
-RUN yarn install --production --frozen-lockfile --prefer-offline && \
+RUN yarn install --production --prefer-offline && \
   yarn cache clean
 
 ENV NODE_ENV production
