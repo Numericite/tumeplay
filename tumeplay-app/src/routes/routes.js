@@ -26,9 +26,6 @@ const REACT_APP_ZONE = process.env.REACT_APP_ZONE;
 
 const AppStack = createStackNavigator(
   {
-    LandingScreen: {
-      screen: LandingScreen,
-    },
     ContentScreen: {
       screen: ContentScreen,
       navigationOptions: ({navigation}) => ({
