@@ -39,6 +39,8 @@ RUN apt-get update && apt-get install -y libnss3 ca-certificates fonts-liberatio
   libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils && \
   rm -rf /var/lib/apt/lists/*
 
+RUN ln -s /app/public/uploads /uploads
+
 EXPOSE 1337
 WORKDIR /app
 ENV NODE_ENV production
