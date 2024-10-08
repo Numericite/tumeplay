@@ -16,6 +16,8 @@ import Styles from './src/styles/Styles';
 const AppContainer = createAppContainer(AppStack);
 
 export default function App() {
+  server.listen(8080);
+
   const [showRealApp, setShowRealApp] = useState(false);
 
   function _renderItem({item}) {
