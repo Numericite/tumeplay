@@ -8,8 +8,6 @@ import {
   Picker,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import openGeocoder from 'node-open-geocoder';
-import _ from 'lodash';
 
 import Colors from '../../styles/Color';
 import Styles from '../../styles/Styles';
@@ -27,8 +25,6 @@ const zipCodeTest = /^[0-9]{5}$/;
 export const phoneTest = /^0[0-9]{9}$/;
 
 const screenWidth = Math.round(Dimensions.get('window').width);
-
-const REACT_APP_ZONE = process.env.REACT_APP_ZONE;
 
 let flexstyletext; // @TODO: Delete if useless
 

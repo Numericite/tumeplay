@@ -74,7 +74,7 @@ export default function TunnelPickupSelect(props) {
             lat: position.coords.latitude,
             long: position.coords.longitude,
           };
-          openGeocoder({'Accept-Language': 'fr' })
+          openGeocoder({'Accept-Language': 'fr'})
             .reverse(coordinates.long, coordinates.lat)
             .end((err, res) => {
               if (
@@ -95,7 +95,7 @@ export default function TunnelPickupSelect(props) {
       );
       setDisplayMap(true);
     }
-  }, [isMounted]);
+  }, [isMounted, currentPosition]);
 
   useEffect(() => {
     async function fetchPoints() {
@@ -135,15 +135,19 @@ export default function TunnelPickupSelect(props) {
       }
       setPickupPoints([]);
       if (localAdress.userZipCode) {
-        filteredPoints = filteredPoints.filter(
-          point => point.CP === localAdress.userZipCode,
-        ).concat(filteredPoints.filter(point => point.CP !== localAdress.userZipCode))
+        filteredPoints = filteredPoints
+          .filter(point => point.CP === localAdress.userZipCode)
+          .concat(
+            filteredPoints.filter(
+              point => point.CP !== localAdress.userZipCode,
+            ),
+          );
       }
       setPickupPoints([...filteredPoints]);
     }
 
     fetchPoints();
-  }, [currentPosition]);
+  }, [currentPosition, localAdress.userZipCode]);
 
   function _onDone() {
     setDisplayMap(false);
@@ -170,7 +174,7 @@ export default function TunnelPickupSelect(props) {
       setLocalAdress(localAdress);
 
       if (zipCodeTest.test(value)) {
-        openGeocoder({'Accept-Language': 'fr' })
+        openGeocoder({'Accept-Language': 'fr'})
           .geocode(value)
           .end((err, res) => {
             if (res.length >= 1) {
@@ -206,7 +210,7 @@ export default function TunnelPickupSelect(props) {
     } else {
       setInvalidZipCode(true);
     }
-    const _displayReset = value != '';
+    const _displayReset = value !== '';
     setDisplayReset(_displayReset);
 
     return value;
@@ -227,7 +231,6 @@ export default function TunnelPickupSelect(props) {
     if (pickupTimer) {
       clearTimeout(pickupTimer);
     }
-    const refRegion = region;
     pickupTimer = setTimeout(refRegion => {
       const localRegion = {
         coords: {
@@ -245,7 +248,7 @@ export default function TunnelPickupSelect(props) {
   }
 
   const handleAddressMore = item => {
-    openGeocoder({'Accept-Language': 'fr' })
+    openGeocoder({'Accept-Language': 'fr'})
       .reverse(item.coordinates.longitude, item.coordinates.latitude)
       .end((err, res) => {
         if (res) {

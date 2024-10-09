@@ -2,7 +2,7 @@ import {StyleSheet, Platform, Dimensions} from 'react-native';
 import Colors from '../Color';
 
 // if browser && screenWidth < 420
-const isWeb = Platform.OS == 'web';
+const isWeb = Platform.OS === 'web';
 const pictureHeight = isWeb ? Dimensions.get('window').width * 0.25 : 130;
 var Styles = {
   gridContainer: {

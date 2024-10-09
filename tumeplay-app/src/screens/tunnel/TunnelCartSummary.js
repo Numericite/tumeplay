@@ -150,6 +150,8 @@ export default function TunnelCartSummary(props) {
           error: orderPost.status,
         });
         break;
+      default:
+        break;
     }
     if (isSelected) {
       const requestBody = {...userAdress};
@@ -286,7 +288,7 @@ export default function TunnelCartSummary(props) {
                 userAdress.firstName + ' ' + userAdress.lastName}
               {deliveryType === 'referent' && selectedReferent.name}
             </Text>
-            {deliveryType == 'home' && (
+            {deliveryType === 'home' && (
               <Text style={[TunnelCartSummaryStyle.subTitle]}>
                 {userAdress.address}
                 {'\n'}
@@ -294,7 +296,7 @@ export default function TunnelCartSummary(props) {
                 {userAdress.zipCode} {userAdress.city}
               </Text>
             )}
-            {deliveryType == 'pickup' && (
+            {deliveryType === 'pickup' && (
               <Text
                 style={[TunnelCartSummaryStyle.subTitle, {paddingBottom: 50}]}>
                 {selectedPickup.LgAdr1}
@@ -305,7 +307,7 @@ export default function TunnelCartSummary(props) {
                 {'\n'}
               </Text>
             )}
-            {(deliveryType == 'referent-metropole' ||
+            {(deliveryType === 'referent-metropole' ||
               deliveryType === 'referent-guyane') && (
               <Text style={[TunnelCartSummaryStyle.subTitle]}>
                 {selectedReferent.name}

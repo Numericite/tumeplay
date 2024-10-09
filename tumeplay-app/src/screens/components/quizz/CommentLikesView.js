@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 
-import QuizzAnswerStyle from '../../../styles/components/QuizzAnswer';
-
 CommentLikesView.propTypes = {
   onPressLike: PropTypes.func,
   onPressComment: PropTypes.func,
@@ -13,7 +11,7 @@ export default function CommentLikesView(props) {
   const [activeButton, setActiveButton] = useState(0);
 
   function onPress(activeItemId, activeItemText) {
-    const activeItemKey = activeItemId == activeButton ? 0 : activeItemId; // trigger when already active clicked item
+    const activeItemKey = activeItemId === activeButton ? 0 : activeItemId; // trigger when already active clicked item
 
     setActiveButton(activeItemKey);
     props.onPressLike(activeItemKey, activeItemText);

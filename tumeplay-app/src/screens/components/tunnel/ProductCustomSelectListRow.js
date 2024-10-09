@@ -83,7 +83,7 @@ export default function ProductCustomSelectListRow(props) {
       setLocalQuantity(newQuantity);
 
       if (newQuantity <= 0) {
-				setIsSelected(false);
+        setIsSelected(false);
       }
     }
   }
@@ -141,7 +141,7 @@ export default function ProductCustomSelectListRow(props) {
             }}>
             {item.description}
           </Text>
-          {stock <= 4 && stock != 0 && (
+          {stock <= 4 && stock !== 0 && (
             <Text
               style={{
                 color: '#4F4F4F',

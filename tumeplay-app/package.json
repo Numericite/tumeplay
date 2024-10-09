@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider react-app-rewired start",
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider cp environnements/env.dev.guyane .env && react-app-rewired start",
+    "dev": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider cp environnements/env.dev.guyane .env && react-app-rewired start",
     "test": "jest",
     "nativeLint": "eslint .",
     "webStart": "EXTEND_ESLINT=true react-app-rewired start",
@@ -29,6 +29,7 @@
     "modal-react-native-web": "^0.2.0",
     "node-open-geocoder": "^4.0.1",
     "react": "16.9.0",
+    "react-app-rewired": "^2.1.5",
     "react-dom": "^16.12.0",
     "react-google-maps": "^9.4.5",
     "react-howler": "^3.7.4",
@@ -47,8 +48,7 @@
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "react-scripts": "^3.2.0",
-    "resize-observer-polyfill": "^1.5.1",
-    "react-app-rewired": "^2.1.5"
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

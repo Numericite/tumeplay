@@ -58,9 +58,9 @@ export default function QuizzScreen(props) {
   const {data, loading} = useQuery(GET_POINTS);
   if (!loading) {
     QuizService.setAnswersPoints(
-      data.parametre.nb_points_wrong_answer,
-      data.parametre.nb_points_right_answer,
-      data.parametre.nb_points_neutral_answer,
+      data?.parametre?.nb_points_wrong_answer,
+      data?.parametre?.nb_points_right_answer,
+      data?.parametre?.nb_points_neutral_answer,
     );
   }
 

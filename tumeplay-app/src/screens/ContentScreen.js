@@ -154,23 +154,12 @@ export default function ContentScreen(props) {
   }, [isAge25, isBadgeModalVisible, isResultModalVisible, needResultModal]);
 
   async function _openInitialModal() {
-    /**
-     * STEPS:
-     * 0. Get user data ( isAge25)
-     * 1. Check if isAge25 is null
-     * 2. if null, open the modal MoreThan25Years
-     * 3. else  open the modal quizzModal
-     * */
-    // Step 1
     const _isAge25 = await UserService.getIsMoreThan25YearsOld();
-    // console.log(`_isAge25: ${_isAge25}`);
 
     setIsAge25(_isAge25 || null);
     if (_isAge25 === null || _isAge25 === undefined) {
-      // Step 2
       _toggleMoreThan25YearsModal();
     } else {
-      // Step 3
       Tracking.quizStarted();
       setCountScore(0);
       setStartQuizTimestamp(Math.floor(Date.now() / 1000));

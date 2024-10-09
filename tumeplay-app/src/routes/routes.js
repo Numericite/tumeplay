@@ -13,7 +13,6 @@ import TunnelOrderConfirm from '../screens/tunnel/TunnelOrderConfirm';
 import TunnelPickupSelect from '../screens/tunnel/TunnelPickupSelect';
 import TunnelReferentSelectMetropole from '../screens/tunnel/TunnelReferentSelectMetropole';
 import TunnelReferentSelectGuyane from '../screens/tunnel/TunnelReferentSelectGuyane';
-import LandingScreen from '../screens/LandingScreen';
 import QuizzFinishScreen from '../screens/QuizzFinishScreen';
 import LegalTermsScreen from '../screens/LegalTermsScreen';
 import ChartScreen from '../screens/ChartScreen';
@@ -21,11 +20,13 @@ import ContactUsScreen from '../screens/ContactUsScreen';
 import StayInTouchScreen from '../screens/StayInTouchScreen';
 import StayInTouchConfirmScreen from '../screens/StayInTouchConfirmScreen';
 import GlobalStatisticsScreen from '../screens/GlobalStatisticsScreen';
-
-const REACT_APP_ZONE = process.env.REACT_APP_ZONE;
+import LandingScreen from '../screens/LandingScreen';
 
 const AppStack = createStackNavigator(
   {
+    LandingScreen: {
+      screen: LandingScreen,
+    },
     ContentScreen: {
       screen: ContentScreen,
       navigationOptions: ({navigation}) => ({

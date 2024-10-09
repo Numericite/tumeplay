@@ -7,20 +7,19 @@ module.exports = ({ env }) => ({
         client: "postgres",
         host: env("POSTGRESQL_ADDON_HOST", "127.0.0.1"),
         port: env.int("POSTGRESQL_ADDON_PORT", 5432),
-        database: env("POSTGRESQL_ADDON_DB", "local"),
-        username: env("POSTGRESQL_ADDON_USER", "local"),
-        password: env("POSTGRESQL_ADDON_PASSWORD", "local"),
-        ssl: getSslConfig(env) 
+        database: env("POSTGRESQL_ADDON_DB", ""),
+        username: env("POSTGRESQL_ADDON_USER", ""),
+        password: env("POSTGRESQL_ADDON_PASSWORD", ""),
+        ssl: getSslConfig(env),
       },
       options: {},
     },
   },
 });
 
-
 function getSslConfig(env) {
   if (env.bool("DATABASE_SSL", false)) {
-    return {rejectUnauthorized: false} // For self-signed certificates
-  } 
+    return { rejectUnauthorized: false }; // For self-signed certificates
+  }
   return false;
 }
