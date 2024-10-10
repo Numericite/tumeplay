@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "cp environnements/env.dev.guyane .env && react-app-rewired start",
+    "start": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider && cp environnements/env.dev.guyane .env && react-app-rewired start",
     "start-aime": "cp environnements/env.dev.aime .env && react-app-rewired start",
     "test": "jest",
     "nativeLint": "eslint .",
