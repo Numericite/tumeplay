@@ -13,7 +13,7 @@ const User = {
   generateUniqueId: async () => {
     let uniqueId = false;
 
-    if (Platform.OS === 'web') {
+    if (Platform.OS == 'web') {
       var n = false;
       var base = false;
       if (window.performance) {
@@ -194,7 +194,7 @@ const User = {
       // const badgeList = await RemoteApi.fetchBadges();
       // console.log('badges list:', badgeList);
       // Getting latest badge id assigned to the user before the update
-      // const badgeIDBeforeUpdate = await User.getlatestBadgeIDWon();
+      const badgeIDBeforeUpdate = await User.getlatestBadgeIDWon();
       // console.log(`badgeIDBeforeUpdate: ${badgeIDBeforeUpdate}`);
 
       const result = {

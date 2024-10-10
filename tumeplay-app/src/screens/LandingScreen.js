@@ -94,7 +94,7 @@ export default function LandingScreen(props) {
     <SafeAreaView style={Styles.safeAreaView}>
       <ScrollView>
         {/* Title and grid */}
-        <View>
+        <View style={{paddingTop: 50}}>
           <Text style={Styles.landingScreenTitle}>{item.title}</Text>
           {REACT_APP_ZONE === 'guyane' ? (
             <TextWithSound
