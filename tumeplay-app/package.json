@@ -47,7 +47,8 @@
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "react-scripts": "^3.2.0",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "react-app-rewired": "^2.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
