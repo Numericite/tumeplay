@@ -64,7 +64,12 @@ export default function ContentScreen(props) {
   });
 
   const opacityTimer = useRef(null);
-  autoScrollToTop(props);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      autoScrollToTop(props);
+    }
+  }, [isMounted]);
 
   // Listeners to fix QuizzButton display on web mode
   const willFocusSubscription = props.navigation.addListener(
@@ -78,16 +83,13 @@ export default function ContentScreen(props) {
     if (isMounted.current) {
       const handleScroll = event => {
         setActiveOpacity(1);
-
         if (opacityTimer && opacityTimer.current) {
           clearTimeout(opacityTimer.current);
         }
-
         opacityTimer.current = setTimeout(() => {
           setActiveOpacity(0.5);
         }, 150);
       };
-
       window.addEventListener('scroll', handleScroll);
       return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -103,7 +105,6 @@ export default function ContentScreen(props) {
     if (isQuizzButtonVisible) {
       setIsQuizzButtonVisible(false);
     }
-
     willFocusSubscription.remove();
     willBlurSubscription.remove();
   });
