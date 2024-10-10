@@ -17,51 +17,30 @@ function addPathToMainRule(config, modulePath) {
 }
 
 module.exports = function override(config, env) {
-  // Use a single entry point for production
-  if (env === 'production') {
-    config.entry = path.resolve('src/indexWeb.js');
-  } else {
-    config.entry[0] = path.resolve('src/indexWeb.js');
-    config.entry[1] = path.resolve('src/index.js');
-  }
+  config.entry[0] = path.resolve('src/indexWeb.js');
+  config.entry[1] = path.resolve('src/index.js');
 
-  const modulesToAdd = [
-    'react-native-gesture-handler',
-    'react-native-screens',
-    'react-native-animatable',
-    '@react-navigation',
-    '@react-native-community/async-storage',
-    'react-native-event-listeners',
-    'react-native-maps',
-    'react-native-htmlview',
-  ];
-
-  modulesToAdd.forEach(module => addModuleToMainRule(config, module));
+  addModuleToMainRule(config, 'react-native-gesture-handler');
+  addModuleToMainRule(config, 'react-native-screens');
+  addModuleToMainRule(config, 'react-native-animatable'),
+    addModuleToMainRule(config, '@react-navigation');
+  addModuleToMainRule(config, '@react-native-community/async-storage');
+  addModuleToMainRule(config, 'react-native-event-listeners');
+  addModuleToMainRule(config, 'react-native-maps');
+  addModuleToMainRule(config, 'react-native-htmlview');
 
   for (const plugin of config.plugins) {
     if (plugin.constructor.name === 'DefinePlugin') {
-      plugin.definitions = {
-        ...plugin.definitions,
-        __DEV__: env === 'development',
-        'process.env.NODE_ENV': JSON.stringify(env),
-      };
+      const defs = plugin.definitions;
+      defs.__DEV__ = env === 'development';
+      plugin.definitions = defs;
     }
   }
 
   config.module.rules[2].oneOf[1].options.sourceType = 'unambiguous';
-
-  config.resolve = {
-    ...config.resolve,
-    alias: {
-      ...config.resolve.alias,
-      'react-native$': 'react-native-web',
-      'react-native-modal': 'modal-react-native-web',
-      '@react-native-community/async-storage':
-        'react-native-web/dist/exports/AsyncStorage',
-      'react-native-maps': 'react-native-web-maps',
-    },
-    extensions: ['.web.js', '.js', '.jsx', '.json'],
-  };
+  config.resolve.alias['react-native-modal'] = 'modal-react-native-web';
+  config.resolve.alias['@react-native-community/async-storage'] =
+    'react-native-web';
 
   return config;
 };

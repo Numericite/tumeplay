@@ -19,7 +19,7 @@ const Storage = {
     }
   },
 
-  clear: async (): Promise<null> => {
+  clear: async () => {
     try {
       await AsyncStorage.clear();
     } catch (e) {
