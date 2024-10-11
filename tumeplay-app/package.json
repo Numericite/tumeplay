@@ -5,12 +5,12 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider && cp environnements/env.dev.guyane .env && react-app-rewired start",
+    "start": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider && cp environnements/env.dev.guyane .env && node server.js && react-app-rewired start",
     "start-aime": "cp environnements/env.dev.aime .env && react-app-rewired start",
     "test": "jest",
     "nativeLint": "eslint .",
     "webStart": "EXTEND_ESLINT=true react-app-rewired start",
-    "build": "react-app-rewired build && node server.js",
+    "build": "react-app-rewired build",
     "postinstall": "sed -i.bak 's/module.exports = /export default /g' node_modules/react-native-device-info/src/web/index.js && sed -i.bak 's/module.exports=/export default /g' node_modules/react-native-device-info/lib/module/web/index.js && rm node_modules/react-native-device-info/src/web/index.js.bak"
   },
   "dependencies": {
