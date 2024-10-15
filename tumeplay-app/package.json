@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "cp environnements/env.dev.metropole .env && react-app-rewired start",
+    "start": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider && cp environnements/env.dev.guyane .env && node server.js && react-app-rewired start",
     "start-guyane": "cp environnements/env.dev.guyane .env && react-app-rewired start",
     "start-aime": "cp environnements/env.dev.aime .env && react-app-rewired start",
     "test": "jest",
@@ -48,8 +48,7 @@
     "react-navigation-stack": "^1.10.3",
     "react-scripts": "^3.2.0",
     "resize-observer-polyfill": "^1.5.1",
-        "react-app-rewired": "^2.1.5"
-
+    "react-app-rewired": "^2.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
