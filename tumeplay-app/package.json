@@ -74,7 +74,6 @@
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.3",
     "prettier": "^1.19.1",
-    "react-app-rewired": "^2.1.5",
     "react-dev-utils": "^9.1.0",
     "react-native-scripts": "^2.0.1",
     "react-test-renderer": "16.9.0"
