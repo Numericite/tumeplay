@@ -1,7 +1,6 @@
-FROM node:12-alpine as builder
+FROM node:12-alpine AS builder
 
-ARG buildenv
-ENV ENVFILE="environnements/env.${buildenv}"
+ENV ENVFILE="./environnements/env.dev.guyane"
 
 
 ARG REACT_APP_API_URL
@@ -9,9 +8,9 @@ ARG REACT_APP_ZONE
 ARG REACT_APP_OTHER_ZONE_URL
 ARG REACT_APP_MATOMO_ID
 
-ENV REACT_APP_API_URL=$REACT_APP_API_URL
-ENV REACT_APP_ZONE=$REACT_APP_ZONE
-ENV REACT_APP_OTHER_ZONE_URL=$REACT_APP_OTHER_ZONE_URL
+ENV REACT_APP_API_URL='https://strapi.tumeplayguyane.fr'
+ENV REACT_APP_ZONE='guyane'
+ENV REACT_APP_OTHER_ZONE_URL='https://tumeplay.fr'
 ENV REACT_APP_MATOMO_ID=$REACT_APP_MATOMO_ID
 
 WORKDIR /

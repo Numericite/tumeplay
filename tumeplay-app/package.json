@@ -5,7 +5,8 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "PORT=8080 NODE_OPTIONS=--openssl-legacy-provider && cp environnements/env.dev.guyane .env && node server.js && react-app-rewired start",
+    "start": "cp environnements/env.dev.metropole .env && react-app-rewired start",
+    "start-guyane": "cp environnements/env.dev.guyane .env && react-app-rewired start",
     "start-aime": "cp environnements/env.dev.aime .env && react-app-rewired start",
     "test": "jest",
     "nativeLint": "eslint .",
@@ -25,12 +26,10 @@
     "@sentry/react-native": "^1.2.2",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "detect-browser": "^4.8.0",
-    "express": "^4.21.1",
     "graphql": "^15.5.0",
     "modal-react-native-web": "^0.2.0",
     "node-open-geocoder": "^4.0.1",
     "react": "16.9.0",
-    "react-app-rewired": "^2.1.5",
     "react-dom": "^16.12.0",
     "react-google-maps": "^9.4.5",
     "react-howler": "^3.7.4",
@@ -42,7 +41,6 @@
     "react-native-htmlview": "^0.15.0",
     "react-native-maps": "github:expo/react-native-maps",
     "react-native-modal": "^11.5.3",
-    "react-native-screens": "^3.34.0",
     "react-native-web": "^0.11.7",
     "react-native-web-maps": "^0.2.0",
     "react-native-web-swiper": "^2.1.0",
@@ -75,6 +73,7 @@
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.3",
     "prettier": "^1.19.1",
+    "react-app-rewired": "^2.1.5",
     "react-dev-utils": "^9.1.0",
     "react-native-scripts": "^2.0.1",
     "react-test-renderer": "16.9.0"
@@ -101,8 +100,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "engines": {
-    "node": "18.17.0"
   }
 }
