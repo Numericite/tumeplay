@@ -38,7 +38,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build --openssl-legacy-provider ",
+    "build": "craco build --openssl-legacy-provider",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -64,5 +64,8 @@
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
+  },
+  "engines": {
+    "node": "18.17.1"
   }
 }
