@@ -43,6 +43,7 @@ const Table = ({
           <a
             href={`${REACT_APP_API_URL}/uploads/orders/mondial-relay/order_mondial_relay_${object.id}.pdf`}
             target="_blank"
+            rel="noreferrer"
           >
             <img
               className="h-6"
